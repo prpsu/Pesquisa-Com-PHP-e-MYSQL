@@ -1,0 +1,43 @@
+CREATE DATABASE ramais CHARACTER SET utf8 COLLATE utf8_general_ci;
+use ramais;
+CREATE TABLE setorRamal(
+idsetor int(10) AUTO_INCREMENT PRIMARY KEY, 
+area VARCHAR(100)
+
+) engine InnoDB;
+
+create table listaDeRamais(
+id int(10) auto_increment primary key,
+usuario varchar(100),
+ramal int(30),
+setorDoRamal int(10)
+) engine InnoDB;
+
+create TABLE descricaoAreaRamal(
+idDescricaoAreaRamal int(10) auto_increment primary key,
+descricao varchar(100),
+setorDoRamal int(10)
+) engine InnoDB;
+
+alter table listaDeRamais add descricaoSetor int(10);
+
+alter table listaDeRamais
+add foreign key (setorDoRamal)
+references setorramal(idsetor);
+
+alter table listaDeRamais
+add foreign key (descricaoSetor)
+references descricaoAreaRamal(idDescricaoAreaRamal);
+
+
+
+SELECT setorramal.area, descricaoAreaRamal.descricao, listaderamais.usuario, listaderamais.ramal FROM listaderamais
+left JOIN setorramal ON setorRamal.idsetor = listaderamais.setorDoRamal
+left JOIN descricaoAreaRamal ON listaDeRamais.descricaoSetor = descricaoAreaRamal.idDescricaoAreaRamal
+where setorramal.area like("%expansao%") and listaderamais.usuario like("%%") 
+and descricaoAreaRamal.descricao like("%%");
+
+
+select * from listaderamais;
+select * from setorRamal;			
+select * from descricaoarearamal;

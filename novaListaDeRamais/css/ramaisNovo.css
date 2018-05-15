@@ -1,0 +1,32 @@
+div {
+border: 4;
+	margin-top: 100px;
+width:250px;
+height: 600px;
+margin-left: 580px; 
+
+}
+
+label{
+	text-align: center;
+padding: 5px;
+margin-left: 25px;
+}
+
+button{
+
+margin-top: 20px;
+margin-left: 50px;
+}
+
+input{
+width: 190px;
+margin-top: 10px;
+text-align: center;
+}
+
+#labelInput{
+margin-top: 10px;
+margin-left: 8px;
+	text-align: center;
+}
